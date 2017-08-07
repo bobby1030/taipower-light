@@ -1,0 +1,88 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
+	color: white;
+	font-family: 'Noto Sans CJK TC', 'Noto Sans TC', 'sans-serif';
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#bg-video {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+#content-wrapper {
+	position: absolute;
+	z-index: 5;
+
+	text-shadow: #000 0 0 15px;
+}
+
+#content-wrapper h1 {
+	font-size: 5em;
+}
+
+#info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#info h2 {
+	font-size: 8em;
+	margin: 0;
+}
+
+#info .description.green {
+	color: #55F655;
+}
+
+#info .description.yellow {
+	color: #FEFE61;
+}
+
+#info .description.orange {
+	color: #FF9E3D;
+}
+
+#info .description.red {
+	color: #FF5656;
+}
+
+#info .description.black {
+	color: #000;
+	text-shadow: #FFF 0 0 15px;
+}
+
+footer {
+	position: absolute;
+	z-index: 6;
+	bottom: 5px;
+	line-height: 130%;
+	text-align: center;
+	text-shadow: #000 2px 2px 7px;
+}
+
+footer>a {
+	font-weight: 800;
+	color: lightblue;
+	text-decoration: none;
+}
+
+@media (max-width: 600px) {
+	body {
+		font-size: 8px;
+	}
+
+	footer {
+		font-size: 2em;
+	}
+}
