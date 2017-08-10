@@ -41,27 +41,6 @@ body {
 	margin: 0;
 }
 
-#info .description.green {
-	color: #55F655;
-}
-
-#info .description.yellow {
-	color: #FEFE61;
-}
-
-#info .description.orange {
-	color: #FF9E3D;
-}
-
-#info .description.red {
-	color: #FF5656;
-}
-
-#info .description.black {
-	color: #000;
-	text-shadow: #FFF 0 0 15px;
-}
-
 footer {
 	position: absolute;
 	z-index: 6;
