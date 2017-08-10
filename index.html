@@ -2,7 +2,7 @@
 <html lang="zh-tw">
 
 <head>
-	<title>跳！| 臺電實時備轉容量率資訊民間版 </title>
+	<title>跳！| 臺灣電網實時剩餘容量率資訊民間版 </title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
@@ -14,7 +14,7 @@
 <body>
 	<div id="content-wrapper">
 		<div class="wrapper">
-			<h1>實時備轉容量率</h1>
+			<h1>實時剩餘容量率</h1>
 			<div id="info">
 				<h2 class="rate"></h2>
 				<h2 class="description"></h2>
@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	<footer>
-		本頁所指之「實時備轉容量率」意義上與臺電指的備轉容量率不同，詳情請<a href="https://github.com/bobby1030/taipower-light/issues/1">見此</a><br/>
+		本頁之「剩餘容量率」與臺電指的備轉容量率不同，詳情請<a href="https://github.com/bobby1030/taipower-light/issues/1">見此</a><br/>
 		實時用電量、最大供電能力資訊由臺電網站取得，實際資訊請以臺電官網為準<br/>
 		Fork me on <a href="https://github.com/bobby1030/taipower-light" target="_blank">GitHub</a>.
 	</footer>
@@ -42,28 +42,9 @@
 			var currentLoad = parseFloat(loadInfo[0].replace(',', '')) / 10;
 			var maxCapacity = parseFloat(loadInfo[2].replace(',', '')) / 10;
 			var avaliableCapacity = maxCapacity - currentLoad;
-			var rate = avaliableCapacity / currentLoad * 100;
-			var status = {};
-			if (avaliableCapacity > 50 && avaliableCapacity <= 90) {
-				status.text = "限電警戒";
-				status.color = "red"
-			} else if (avaliableCapacity <= 50) {
-				status.text = "限電準備";
-				status.color = "black"
-			} else if (rate >= 10) {
-				status.text = "供電充裕";
-				status.color = "green"
-			} else if (rate < 10 && rate > 6) {
-				status.text = "供電吃緊";
-				status.color = "yellow"
-			} else if (rate <= 6) {
-				status.text = "供電警戒";
-				status.color = "orange"
-			}
+			var rate = avaliableCapacity / maxCapacity * 100;
 
 			document.querySelector("h2.rate").innerHTML = rate.toFixed(2) + "%";
-			document.querySelector("h2.description").innerHTML = status.text;
-			document.querySelector("h2.description").className += ' ' + status.color
 		}
 
 		display()
